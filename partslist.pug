@@ -1,0 +1,15 @@
+html
+  head
+    title #{title}
+  body
+    h3 List of All Parts
+    ul
+      each part in parts
+        li = part.team + part.partName + part.quantity
+  
+        form(method='POST' action='/partslist')
+            div
+              label(for='team') Team: 
+              input(name='team' type='text' id="team")
+            
+              input(type='submit' id='submit')

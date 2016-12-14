@@ -1,0 +1,16 @@
+html
+  head
+    title Request Parts
+  body
+    h3 
+    ul
+
+    form(method='POST' action='/request')
+      div
+        label(for='name') Name:
+        input(name='name' type='text' id="name")
+      div
+        label(for='email') Email:
+        input(name='email' type='text' id='email')
+      div
+        input(type='submit' id='submit')
