@@ -3,13 +3,69 @@ html
     title #{title}
   body
     h3 List of All Parts
-    ul
-      each part in parts
-        li = part.team + part.partName + part.quantity
-  
-        form(method='POST' action='/partslist')
-            div
-              label(for='team') Team: 
-              input(name='team' type='text' id="team")
-            
-              input(type='submit' id='submit')
+    h4 Enter new parts
+
+    form(method='POST' action='/partslist')
+        div
+          
+          label(for='partType') Part type:
+          select(name = 'partType' id = 'partType')
+            option(value = 'Structure') Structure
+            option(value = 'Motion') Motion
+            option(value = 'Electronics') Electronics
+            option(value= 'Other') Other
+        
+          br
+          label(for='partName') Part name:
+          input(name='partName' type='text' id="partName")
+          br
+          label(for='productNumber') Product number:
+          input(name='productNumber' type='text' id="productNumber")
+          br
+          label(for='price') Price:
+          input(name='price' type='number' id="price")
+          br
+          label(for='quantity') Quantity:
+          input(name='quantity' type='number' id="quantity")
+          br
+          label(for='location') Location:
+          input(name='location' type='text' id="location")
+          br
+          
+          label(for='needOrdered') Does this piece need to be ordered?
+          select(name = 'needOrdered' id = 'needOrdered')
+            option(value = 'false') No
+            option(value = 'true') Yes
+          br
+          input(type='submit' id='submit')
+          br  
+          br
+          b Structure
+          ul
+            each part in parts
+              if part.partType == 'Structure' && part.needOrdered == false
+                li=part.partName + ", Quantity: " + part.quantity + ", Location: " + part.location
+          
+          
+          b Motion
+          ul
+            each part in parts
+              if part.partType == 'Motion' && part.needOrdered == false
+                li=part.partName + ", Quantity: " + part.quantity + ", Location: " + part.location
+                
+          b Electronics
+          ul
+            each part in parts
+              if part.partType == 'Electronics' && part.needOrdered == false
+                li=part.partName + ", Quantity: " + part.quantity + ", Location: " + part.location    
+
+          b Other
+          ul
+            each part in parts
+              if part.partType == 'Other' && part.needOrdered == false
+                li=part.partName + ", Quantity: " + part.quantity + ", Location: " + part.location    
+                       
+                               
+                    
+              
+              

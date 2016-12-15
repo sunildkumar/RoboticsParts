@@ -1,0 +1,42 @@
+html
+  head
+    title #{title}
+  body
+  b Next Order
+  br
+  br  
+  b Structure
+  ul
+    each part in parts
+      if part.partType == 'Structure' && part.needOrdered == true
+        li="Part Name: " + part.partName + ", P/N: "+part.productNumber +", Price: " +part.price +", Quanitity: " +part.quantity
+  
+  
+  b Motion
+  ul
+    each part in parts
+      if part.partType == 'Motion' && part.needOrdered == true
+        li="Part Name: " + part.partName + ", P/N: "+part.productNumber +", Price: " +part.price +", Quanitity: " +part.quantity
+        
+  b Electronics
+  ul
+    each part in parts
+      if part.partType == 'Electronics' && part.needOrdered == true
+        li="Part Name: " + part.partName + ", P/N: "+part.productNumber +", Price: " +part.price +", Quanitity: " +part.quantity   
+
+  b Other
+  ul
+    each part in parts
+      if part.partType == 'Other' && part.needOrdered == true
+        li="Part Name: " + part.partName + ", P/N: "+part.productNumber +", Price: " +part.price +", Quanitity: " +part.quantity
+        
+  form(method='POST' action='/order')
+    input(type='submit' id='submit' value = 'Clear')
+    
+  
+      
+      
+               
+  
+  
+  

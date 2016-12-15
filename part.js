@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
 
 var partSchema = mongoose.Schema({
-  team: String,
   partType: String,
   partName: String,
   productNumber: String,
-  quantity: Number
+  quantity: Number,
+  location: String,
+  needOrdered: Boolean,
+  price: Number
+
 });
 
 var Part = mongoose.model('Part', partSchema);

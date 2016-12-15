@@ -1,0 +1,84 @@
+html
+  head
+    link(href='stylesheet.css', rel='stylesheet')
+    title #{title}
+  body
+  b Modify Entry
+  br
+  br
+  form(method='POST' action='/modify')
+      u Old Part
+      br
+      div
+      label(for='oldPartName') Old part name:
+      input(name='oldPartName' type='text' id="oldPartName")
+      
+      br
+      
+      label(for='oldLocation') Old Location:
+      input(name='oldLocation' type='text' id="oldLocation")
+      br
+      br
+      u New Part
+    
+      br
+      label(for='partType') Part type:
+      select(name = 'partType' id = 'partType')
+        option(value = 'Structure') Structure
+        option(value = 'Motion') Motion
+        option(value = 'Electronics') Electronics
+        option(value= 'Other') Other
+    
+      br
+      label(for='partName') Part name:
+      input(name='partName' type='text' id="partName")
+      br
+      label(for='productNumber') Product number:
+      input(name='productNumber' type='text' id="productNumber")
+      br
+      label(for='price') Price:
+      input(name='price' type='number' id="price")
+      br
+      label(for='quantity') Quantity:
+      input(name='quantity' type='number' id="quantity")
+      br
+      label(for='location') Location:
+      input(name='location' type='text' id="location")
+      br
+      label(for='needOrdered') Does this piece need to be ordered?
+      select(name = 'needOrdered' id = 'needOrdered')
+        option(value = 'false') No
+        option(value = 'true') Yes
+      br  
+      input(type='submit' id='submit')
+  
+b Structure
+ul
+  each part in parts
+    if part.partType == 'Structure'
+      li=part.partName +" "+ "Quantity: " + part.quantity + " Location: " + part.location
+
+
+b Motion
+ul
+  each part in parts
+    if part.partType == 'Motion'
+      li=part.partName +" "+ "Quantity: " + part.quantity + " Location: " + part.location
+
+b Electronics
+ul
+  each part in parts
+    if part.partType == 'Electronics' 
+      li=part.partName +" "+ "Quantity: " + part.quantity + " Location: " + part.location
+
+b Other
+ul
+  each part in parts
+    if part.partType == 'Other'
+      li=part.partName +" "+ "Quantity: " + part.quantity + " Location: " + part.location
+      
+  
+
+
+
+          
